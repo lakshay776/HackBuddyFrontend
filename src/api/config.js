@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8000/Hack';
+// Use local backend for development, deployed backend for production
+const API_BASE_URL ='https://hackbuddybackend.onrender.com';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
