@@ -4,6 +4,7 @@ Build Amazing Things Together
 HackBuddy is your one-stop platform to connect with developers, form teams, and participate in hackathons. Turn your innovative ideas into reality with the perfect team and all the resources you need for hackathon success.
 
 #🚀 Features
+
 Find Your Perfect Team:
 Connect with like-minded developers, discover complementary skills, and assemble your ideal hackathon team.
 
