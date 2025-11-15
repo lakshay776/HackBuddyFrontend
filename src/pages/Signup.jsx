@@ -6,7 +6,7 @@ import Button from '../components/Button';
 import Input from '../components/Input';
 import Card from '../components/Card';
 import LoadingSpinner from '../components/LoadingSpinner';
-
+import GoogleLoginButton from '../components/GoogleLoginButton.jsx';
 const Signup = () => {
   const [formData, setFormData] = useState({
     Name: '',
@@ -219,7 +219,7 @@ const Signup = () => {
               {loading ? <LoadingSpinner size="sm" /> : 'Create Account'}
             </Button>
           </form>
-
+            <GoogleLoginButton/>
           <div className="mt-6 text-center">
             <p className="text-gray-600">
               Already have an account?{' '}
@@ -231,6 +231,7 @@ const Signup = () => {
               </Link>
             </p>
           </div>
+          <GoogleLoginButton/>
         </Card>
       </div>
     </div>

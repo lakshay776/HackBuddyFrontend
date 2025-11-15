@@ -141,7 +141,26 @@ export const AuthProvider = ({ children }) => {
     dispatch({ type: 'UPDATE_USER', payload: userData });
   };
 
-  const value = { ...state, login, signup, logout, updateUser };
+  const googleLogin = async (responseData) => {
+    try {
+      if (responseData.success && responseData.token && responseData.user) {
+        // Store token and user data in localStorage
+        localStorage.setItem('token', responseData.token);
+        localStorage.setItem('user', JSON.stringify(responseData.user));
+        dispatch({ type: 'AUTH_SUCCESS', payload: { user: responseData.user } });
+        return { success: true, user: responseData.user };
+      } else {
+        dispatch({ type: 'AUTH_FAILURE', payload: 'Google login failed' });
+        return { success: false, error: 'Google login failed' };
+      }
+    } catch (error) {
+      const errorMessage = error.response?.data?.message || 'Google login failed';
+      dispatch({ type: 'AUTH_FAILURE', payload: errorMessage });
+      return { success: false, error: errorMessage };
+    }
+  };
+
+  const value = { ...state, login, signup, logout, updateUser, googleLogin };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
